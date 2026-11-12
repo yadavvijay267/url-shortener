@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnipLink — URL Shortener</title>
+  <meta name="description" content="Shorten long URLs in one click, copy them, generate a QR code, and keep a history of every link you shorten. Free, no sign-up, powered by the is.gd public API.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <img class="logo" src="../assets/logo.svg" alt="SnipLink logo" width="56" height="56">
+      <h1>Snip<span>Link</span></h1>
+      <p class="tagline">Paste a long URL. Get a short one. Share it anywhere.</p>
+    </header>
+
+    <section class="card shortener" aria-label="Shorten a URL">
+      <form id="shorten-form">
+        <label for="url-input">Long URL</label>
+        <div class="input-row">
+          <input id="url-input" type="url" placeholder="https://example.com/a/very/long/page" required autocomplete="off" spellcheck="false">
+          <button class="btn primary" type="submit" id="shorten-btn">Shorten</button>
+        </div>
+        <div class="options">
+          <label for="alias-input" class="alias-label">Custom alias <span class="hint">(optional — is.gd only, letters, numbers, dashes)</span></label>
+          <input id="alias-input" type="text" placeholder="my-link" pattern="[A-Za-z0-9_-]+" maxlength="30" autocomplete="off" spellcheck="false">
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div id="result" class="result hidden">
+        <div class="result-main">
+          <a id="short-url" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <div class="result-actions">
+            <button class="btn" id="copy-btn" type="button">Copy</button>
+            <button class="btn" id="qr-btn" type="button">Show QR</button>
+            <button class="btn ghost" id="health-btn" type="button">Check link health</button>
+          </div>
+          <p id="health" class="health" role="status" aria-live="polite"></p>
+        </div>
+        <figure id="qr-wrap" class="qr hidden">
+          <img id="qr-img" alt="QR code for the shortened link" width="160" height="160">
+          <figcaption>Scan to open the link</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card history" aria-label="Link history">
+      <div class="history-head">
+        <h2>Your links</h2>
+        <button class="btn ghost small" id="clear-history" type="button">Clear history</button>
+      </div>
+      <p class="muted">Saved in your browser (localStorage). Nothing leaves your device except the shortening request itself.</p>
+      <ul id="history-list" class="history-list"></ul>
+      <p id="history-empty" class="muted">No links yet — shorten your first URL above.</p>
+    </section>
+
+    <footer class="footer">
+      <p>Shortening via the <a href="https://is.gd/apishorteningreference.php" target="_blank" rel="noopener noreferrer">is.gd API</a> (free, no key), with TinyURL as a fallback. QR codes via api.qrserver.com. MIT licensed.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

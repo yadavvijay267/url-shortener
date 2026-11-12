@@ -1,0 +1,130 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card-border: #334155;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #22d3ee;
+  --accent-dark: #0891b2;
+  --danger: #f87171;
+  --success: #4ade80;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(160deg, #0f172a 0%, #172554 55%, #0e7490 130%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.container { max-width: 720px; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+
+.hero { text-align: center; margin-bottom: 1.75rem; }
+.hero h1 { font-size: 2.6rem; margin: 0.4rem 0 0.25rem; letter-spacing: -0.02em; }
+.hero h1 span { color: var(--accent); }
+.tagline { color: var(--muted); margin: 0; font-size: 1.05rem; }
+.logo { display: block; margin: 0 auto; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+.hint { font-weight: 400; color: var(--muted); font-size: 0.85rem; }
+
+.input-row { display: flex; gap: 0.6rem; }
+.input-row input { flex: 1; min-width: 0; }
+
+input[type="url"], input[type="text"] {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 9px;
+  border: 1px solid var(--card-border);
+  background: #0f172a;
+  color: var(--text);
+  font-size: 1rem;
+}
+input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+
+.options { margin-top: 0.9rem; }
+.alias-label { margin-bottom: 0.3rem; }
+
+.btn {
+  padding: 0.7rem 1.1rem;
+  border-radius: 9px;
+  border: 1px solid var(--card-border);
+  background: #334155;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:hover { filter: brightness(1.15); }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+.btn.primary { background: var(--accent-dark); border-color: var(--accent-dark); }
+.btn.ghost { background: transparent; }
+.btn.small { padding: 0.4rem 0.7rem; font-size: 0.85rem; }
+
+.status { min-height: 1.4em; margin: 0.8rem 0 0; color: var(--muted); }
+.status.error { color: var(--danger); }
+.status.success { color: var(--success); }
+
+.hidden { display: none !important; }
+
+.result { border-top: 1px dashed var(--card-border); margin-top: 1.2rem; padding-top: 1.2rem; }
+.result-main a {
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  word-break: break-all;
+  text-decoration: none;
+}
+.result-main a:hover { text-decoration: underline; }
+.result-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.health { margin: 0.7rem 0 0; font-size: 0.95rem; }
+.health.ok { color: var(--success); }
+.health.bad { color: var(--danger); }
+
+.qr { text-align: center; margin: 1rem 0 0; }
+.qr img { background: #fff; padding: 8px; border-radius: 10px; }
+.qr figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
+
+.history-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.history-head h2 { margin: 0; font-size: 1.25rem; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+
+.history-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.history-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--card-border);
+}
+.history-list a { color: var(--accent); font-weight: 600; text-decoration: none; word-break: break-all; }
+.history-list a:hover { text-decoration: underline; }
+.history-list .orig { color: var(--muted); font-size: 0.85rem; word-break: break-all; flex-basis: 100%; }
+.history-list .count { color: var(--muted); font-size: 0.85rem; margin-left: auto; }
+.history-list .mini-copy {
+  background: transparent; border: 1px solid var(--card-border); color: var(--text);
+  border-radius: 6px; padding: 0.2rem 0.55rem; cursor: pointer; font-size: 0.8rem;
+}
+
+.footer { text-align: center; color: var(--muted); font-size: 0.85rem; }
+.footer a { color: var(--accent); }
+
+@media (max-width: 520px) {
+  .input-row { flex-direction: column; }
+  .hero h1 { font-size: 2.1rem; }
+}

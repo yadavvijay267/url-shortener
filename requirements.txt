@@ -1,0 +1,8 @@
+# No Python dependencies are needed for this project.
+# SnipLink is a static HTML/CSS/JS front end. It runs by opening
+# src/index.html in a browser (or serving src/ with any static server).
+# The only runtime requirement is an internet connection, so the browser
+# can reach the free is.gd / TinyURL shortening APIs.
+#
+# Dev-only: the automated HTML check (tests/check_html.py) uses only the
+# Python standard library.
